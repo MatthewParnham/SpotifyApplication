@@ -1,7 +1,6 @@
 import sys
 import spotipy
 import spotipy.util as util
-from spotipy.oauth2 import SpotifyClientCredentials
 
 def show_tracks(tracks):
     for i, item in enumerate(tracks['items']):
@@ -17,8 +16,6 @@ if __name__ == '__main__':
         print("Whoops, need your username!")
         print("usage: python user_playlists.py [username]")
         sys.exit()
-
-    client_credentials_manager = SpotifyClientCredentials(client_id='d1eebb993a9849288e221d27b95158f5', client_secret='0115f96419b848c0a5e2e28d1257618e')
 
     token = util.prompt_for_user_token(username, client_id='d1eebb993a9849288e221d27b95158f5',
     client_secret='0115f96419b848c0a5e2e28d1257618e',redirect_uri='http://www.google.com')
