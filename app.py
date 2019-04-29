@@ -84,5 +84,7 @@ if __name__ == '__main__':
                     switch = True
 
         sp.user_playlist_add_tracks(username, playlist_id=playlist['uri'], tracks=newList)
+        print()
+        print("Playlist Created")
     else:
         print("Can't get token for", username)
