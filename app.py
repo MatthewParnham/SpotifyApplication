@@ -3,6 +3,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import sys
 import spotipy.util as util
 import os
+from random import randint
 
 # Get the username from input
 username = input("Enter your friend's Username: ")
@@ -32,13 +33,6 @@ sp = None
 
 
 
-
-
-
-
-
-
-
 def intersection(lst1, lst2):
     lst3 = [value for value in lst1 if value in lst2]
     return lst3
@@ -65,7 +59,7 @@ if __name__ == '__main__':
     if token:
         sp = spotipy.Spotify(auth=token)
         playlist = sp.user_playlist_create(username, "mUSic Shared Playlist", public=False)
-        tracks = sp.current_user_top_tracks(limit=50, offset=0, time_range='medium_term')
+        tracks = sp.current_user_top_tracks(limit=100, offset=0, time_range='medium_term')
         trackIDs2 = []
         for track in tracks['items']:
             trackIDs2.append(track['uri'])
@@ -73,10 +67,13 @@ if __name__ == '__main__':
 
         # Create new list!
         newList = intersection(trackIDs1,trackIDs2)
-        print(newList)
-        if(len(newList) == 0):
-            print("No shared songs")
-
+        
+        while(len(newList) < 30):
+            switch = True
+            if(switch):
+                newList.append(trackIDs1[randint(0,len(trackIDs1)-1)])
+            else:
+                newList.append(trackIDs2[randint(0,len(trackIDs2)-1)])
 
         sp.user_playlist_add_tracks(username, playlist_id=playlist['uri'], tracks=newList)
     else:
