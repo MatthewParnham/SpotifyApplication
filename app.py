@@ -7,6 +7,7 @@ from random import randint
 
 # Get the username from input
 username = input("Enter your friend's Username: ")
+friend_name = username
 
 client_credentials_manager = SpotifyClientCredentials(client_id='d1eebb993a9849288e221d27b95158f5', client_secret='0115f96419b848c0a5e2e28d1257618e')
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
@@ -58,7 +59,7 @@ if __name__ == '__main__':
 
     if token:
         sp = spotipy.Spotify(auth=token)
-        playlist = sp.user_playlist_create(username, "mUSic Shared Playlist", public=False)
+        playlist = sp.user_playlist_create(username, "mUSic Playlist with " + friend_name, public=False)
         tracks = sp.current_user_top_tracks(limit=100, offset=0, time_range='medium_term')
         trackIDs2 = []
         for track in tracks['items']:
@@ -67,13 +68,20 @@ if __name__ == '__main__':
 
         # Create new list!
         newList = intersection(trackIDs1,trackIDs2)
-        
+
         while(len(newList) < 30):
             switch = True
+
             if(switch):
-                newList.append(trackIDs1[randint(0,len(trackIDs1)-1)])
+                randIdx = randint(0,len(trackIDs1)-1)
+                if trackIDs1[randIdx] not in newList:
+                    newList.append(trackIDs1[randIdx])
+                    switch = False
             else:
-                newList.append(trackIDs2[randint(0,len(trackIDs2)-1)])
+                randIdx = randint(0,len(trackIDs2)-1)
+                if trackIDs2[randIdx] not in newList:
+                    newList.append(trackIDs2[randIdx])
+                    switch = True
 
         sp.user_playlist_add_tracks(username, playlist_id=playlist['uri'], tracks=newList)
     else:
