@@ -69,8 +69,8 @@ if __name__ == '__main__':
         # Create new list!
         newList = intersection(trackIDs1,trackIDs2)
 
+        switch = True
         while(len(newList) < 30):
-            switch = True
 
             if(switch):
                 randIdx = randint(0,len(trackIDs1)-1)
