@@ -1,6 +1,7 @@
 import sys
 import spotipy
 import spotipy.util as util
+import os
 
 def show_tracks(tracks):
     for i, item in enumerate(tracks['items']):
@@ -11,7 +12,10 @@ def show_tracks(tracks):
 
 if __name__ == '__main__':
     username = input("Enter your username: ")
-
+    try:
+        os.remove(".cache-"+username)
+    except:
+        pass
     token = util.prompt_for_user_token(username, client_id='d1eebb993a9849288e221d27b95158f5',
     client_secret='0115f96419b848c0a5e2e28d1257618e',redirect_uri='http://www.google.com')
 
