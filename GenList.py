@@ -17,7 +17,7 @@ if __name__ == '__main__':
     except:
         pass
     token = util.prompt_for_user_token(username,
-    scope='playlist-modify-private',
+    scope='playlist-modify-private,user-top-read',
     client_id='d1eebb993a9849288e221d27b95158f5',
     client_secret='0115f96419b848c0a5e2e28d1257618e',
     redirect_uri='http://www.google.com')
@@ -25,7 +25,10 @@ if __name__ == '__main__':
     if token:
         sp = spotipy.Spotify(auth=token)
         playlist = sp.user_playlist_create(username, "mUSic Shared Playlist", public=False)
-        trackIDs = ["1pAyyxlkPuGnENdj4g7Y4f", "7D2xaUXQ4DGY5JJAdM5mGP"]
+        tracks = sp.current_user_top_tracks(limit=20, offset=0, time_range='medium_term')
+        trackIDs = []
+        for track in tracks['items']:
+            trackIDs.append(track['uri'])
         sp.user_playlist_add_tracks(username, playlist_id=playlist['uri'], tracks=trackIDs)
     else:
         print("Can't get token for", username)
