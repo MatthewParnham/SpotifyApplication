@@ -1,2 +1,3 @@
 ## Matthew Parnham's Contributions
-* Wrote current code
+* Implemented public playlist access.
+* Implemented private playlist access.
