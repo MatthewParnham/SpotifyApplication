@@ -21,7 +21,7 @@ if __name__ == '__main__':
         for playlist in playlists['items']:
             if playlist['owner']['id'] == username:
                 print()
-                print(playlist['name'])
+                print(playlist['name'], playlist['uri'])
                 print('  total tracks', playlist['tracks']['total'])
                 results = sp.user_playlist(username, playlist['id'],
                     fields="tracks,next")
