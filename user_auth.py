@@ -10,12 +10,7 @@ def show_tracks(tracks):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) > 1:
-        username = sys.argv[1]
-    else:
-        print("Whoops, need your username!")
-        print("usage: python user_playlists.py [username]")
-        sys.exit()
+    username = input("Enter your username: ")
 
     token = util.prompt_for_user_token(username, client_id='d1eebb993a9849288e221d27b95158f5',
     client_secret='0115f96419b848c0a5e2e28d1257618e',redirect_uri='http://www.google.com')
