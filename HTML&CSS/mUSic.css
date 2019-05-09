@@ -7,10 +7,7 @@ header{
 	padding-left: 20px;
 }
 body{
-	margin: auto;
-	background-image: url("../../Desktop/Artboard 1.png");
-	background-repeat: no-repeat;
-	background-size: 100% 720px;
+	background-color: #A4FEBE;
 }
 #wrap{
 	width: 465px;
@@ -76,7 +73,7 @@ input[type="text"], input[type="password"]{
     color: black;
     border-radius: 50%;
     border: none;
-    background-color: #FFFFFF;
+    background-color: rgb(255, 255, 255);
     border-bottom: 4px solid #282727;
 	margin-top: 10px;
     margin-bottom: 20px;
