@@ -4,7 +4,13 @@
 ### Description
 Our application is currently split into a couple different files.  Run different python scripts to see different features.
 
-### Instructions
+
+
+
+
+### Python Application
+
+#### Instructions
 * Make sure Spotipy Library is installed with "pip install spotipy"
 * In a shell, run 'python app.py'. Enter your friend's username.
 * Now, Enter your username as instructed.
