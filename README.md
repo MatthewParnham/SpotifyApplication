@@ -2,7 +2,7 @@
 ## Matthew Parnham, Alex Rigl, Rielle Dizon
 
 ### Description
-Our application is currently split into a couple different files.  Run different python scripts to see different features.
+Enter two spotify user names.  Authenticate your account.  A new playlist will be generated with common interests of both accounts.  If not enough common songs exist (or none at all), songs will be selected from both user's libraries in an alternating fashion.
 
 
 
