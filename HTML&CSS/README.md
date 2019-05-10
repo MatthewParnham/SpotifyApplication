@@ -1,6 +1,6 @@
 # Final Iteration
 Demo: visit alexrigl.com
-Purpose:
+
 Description:
 - Will run a python script on the webserver utilizing CGI
 - Takes in the username, and writes out a simple message
